@@ -1,6 +1,6 @@
 {
-  "resourceName": "dynamodf9e0aee",
-  "tableName": "dynamodf9e0aee",
+  "resourceName": "postsDb",
+  "tableName": "postsDb",
   "partitionKey": {
     "fieldName": "id",
     "fieldType": "string"

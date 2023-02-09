@@ -1,6 +1,6 @@
 {
   "api": {
-    "apia4e440b0": {
+    "postsapi": {
       "dependsOn": [
         {
           "attributes": [
@@ -8,7 +8,7 @@
             "Arn"
           ],
           "category": "function",
-          "resourceName": "miniblogonaws2211bd2e"
+          "resourceName": "postsFunction"
         }
       ],
       "providerPlugin": "awscloudformation",
@@ -16,7 +16,7 @@
     }
   },
   "auth": {
-    "miniblogonawsc074ec0c": {
+    "miniblogonawscb56b705": {
       "customAuth": false,
       "dependsOn": [],
       "frontendAuthConfig": {
@@ -44,7 +44,7 @@
     }
   },
   "function": {
-    "miniblogonaws2211bd2e": {
+    "postsFunction": {
       "build": true,
       "dependsOn": [
         {
@@ -57,33 +57,15 @@
             "Arn"
           ],
           "category": "storage",
-          "resourceName": "dynamodf9e0aee"
+          "resourceName": "postsDb"
         }
       ],
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
     }
   },
-  "parameters": {
-    "AMPLIFY_function_miniblogonaws2211bd2e_deploymentBucketName": {
-      "usedBy": [
-        {
-          "category": "function",
-          "resourceName": "miniblogonaws2211bd2e"
-        }
-      ]
-    },
-    "AMPLIFY_function_miniblogonaws2211bd2e_s3Key": {
-      "usedBy": [
-        {
-          "category": "function",
-          "resourceName": "miniblogonaws2211bd2e"
-        }
-      ]
-    }
-  },
   "storage": {
-    "dynamodf9e0aee": {
+    "postsDb": {
       "providerPlugin": "awscloudformation",
       "service": "DynamoDB"
     }

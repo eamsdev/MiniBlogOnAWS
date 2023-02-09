@@ -15,7 +15,7 @@ AWS.config.update({ region: process.env.TABLE_REGION });
 
 const dynamodb = new AWS.DynamoDB.DocumentClient();
 
-let tableName = 'dynamodf9e0aee';
+let tableName = 'postsDb';
 if (process.env.ENV && process.env.ENV !== 'NONE') {
   tableName = tableName + '-' + process.env.ENV;
 }
@@ -53,6 +53,16 @@ const convertUrlType = (param, type) => {
   }
 };
 
+/********************************
+ * MANUALLY ADDED
+ * HTTP Get method to scan all objects *
+ *
+ * The generated lambda code from `amplify add api` only created a `get` endpoint
+ * to "list" an _individual_ object.
+ *
+ * This adds the ability to perform a scan which returns an Items array of all objects.
+ ********************************/
+
 app.get(path, function (req, res) {
   var params = {
     TableName: tableName,
@@ -63,6 +73,7 @@ app.get(path, function (req, res) {
     if (err) {
       res.json({ error: 'Could not load items: ' + err.message });
     }
+
     res.json({
       data: data.Items.map((item) => {
         return item;
