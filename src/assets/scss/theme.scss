@@ -1,0 +1,102 @@
+$themes: (
+  light: (
+    color-card: #ede3d3,
+    color-backdrop: #d9cbb4,
+    color-text: #252422,
+    color-text-disabled: #2524225f,
+    color-text-light: darken(#ede3d3, 30%),
+    color-results-background: darken(#ede3d3, 5%),
+    color-readingtime-background: darken(#ede3d3, 25%),
+    color-aside-secondary: #5c3f38,
+    color-footer-background: darken(#535353, 20%),
+    color-footer-text: #dee2e6,
+    color-highlight: #402d33,
+    color-text-highlight: #d8dbdf,
+    color-toggle: #6d4d57,
+    color-button-border: #d9cbb4,
+    color-button: #ede3d3,
+    color-button-text: #402d33,
+    color-button-active: #402d33,
+    color-button-active-text: #ede3d3,
+    color-button-disabled: #ede3d3,
+    color-button-disabled-text: #2524225f,
+    color-accent-aside: #d8dbdf,
+    color-accent-main: #252422,
+    color-background-code: #d2cabe,
+    color-code: #252422,
+  ),
+  dark: (
+    color-card: #1e1e1e,
+    color-backdrop: #121212,
+    color-text: #e3e3e3,
+    color-text-disabled: darken(#e3e3e3, 50%),
+    color-results-background: #454545,
+    color-readingtime-background: #3b3b3b,
+    color-aside-secondary: #242323,
+    color-footer-background: #212121,
+    color-footer-text: #dee2e6,
+    color-highlight: #1e1e1e,
+    color-text-highlight: #e3e3e3,
+    color-toggle: #3b3b3b,
+    color-button-border: #121212,
+    color-button: #1e1e1e,
+    color-button-text: #e3e3e3,
+    color-button-active: #e3e3e3,
+    color-button-active-text: #121212,
+    color-button-disabled: #3b3b3b,
+    color-button-disabled-text: #5b5a5a,
+    color-accent-main: lightgreen,
+    color-accent-aside: lightgreen,
+    color-background-code: #282a36,
+    color-code: #f8f8f2,
+  ),
+);
+
+/**
+ * https://www.webtips.dev/how-i-theme-my-react-app-with-sass
+ * theme-aware - Change color of a css property based on the currently active theme
+ *
+ * @param  {key}     CSS property
+ * @param  {color}   Color name defined in the themes under _color-palette.scss
+ *
+ * @example - @include theme-aware('background', 'color-background');
+ * @returns - background: #FFF;
+ */
+@mixin theme-aware($key, $color) {
+  @each $theme-name, $theme-color in $themes {
+    .theme-#{$theme-name} & {
+      #{$key}: map-get(map-get($themes, $theme-name), $color);
+    }
+  }
+}
+
+@mixin theme-aware-important($key, $color) {
+  @each $theme-name, $theme-color in $themes {
+    .theme-#{$theme-name} & {
+      #{$key}: map-get(map-get($themes, $theme-name), $color) !important;
+    }
+  }
+}
+
+@mixin no-transition {
+  transition: none !important;
+  -webkit-transition: none !important;
+}
+
+@mixin primary-button {
+  @include theme-aware('color', 'color-text-highlight');
+  @include theme-aware('border-color', 'color-highlight');
+  @include theme-aware('background-color', 'color-highlight');
+}
+
+@mixin secondary-button {
+  @include theme-aware('color', 'color-button-text');
+  @include theme-aware('border-color', 'color-button-border');
+  @include theme-aware('background-color', 'color-button');
+}
+
+@mixin secondary-button-active {
+  @include theme-aware('color', 'color-button-active-text');
+  @include theme-aware('background-color', 'color-button-active');
+  @include theme-aware('border-color', 'color-button-active');
+}

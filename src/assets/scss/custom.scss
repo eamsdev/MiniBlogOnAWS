@@ -1,0 +1,12 @@
+$positions: (fixed, absolute, relative, sticky, static);
+@each $breakpoint in map-keys($grid-breakpoints) {
+  @include media-breakpoint-up($breakpoint) {
+    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+    // Common values
+    @each $position in $positions {
+      .position#{$infix}-#{$position} {
+        position: $position !important;
+      }
+    }
+  }
+}
