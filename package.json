@@ -69,7 +69,9 @@
     "webpack-merge": "^5.8.0"
   },
   "dependencies": {
+    "@aws-amplify/ui-react": "^4.3.7",
     "@giscus/react": "^2.2.4",
+    "aws-amplify": "^5.0.13",
     "bootstrap": "^5.2.0",
     "dayjs": "^1.11.7",
     "mobx": "^6.6.1",

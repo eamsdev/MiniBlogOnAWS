@@ -5,6 +5,7 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 import { Spinner } from '../components-library/Spinner';
 import Blogs from './Blogs';
 import Article from './Article';
+import { EditPosts } from './EditPosts';
 
 const AboutMe = React.lazy(() => import('./AboutMe'));
 const ArticlesSearch = React.lazy(() => import('./ArticlesSearch'));
@@ -31,6 +32,7 @@ export const Content: FC = observer(() => {
             </Suspense>
           }
         />
+        <Route path="/edit" element={<EditPosts />} />
         <Route path="*" element={<Navigate to="/blogs/page/0" replace />} />
       </Routes>
     </main>

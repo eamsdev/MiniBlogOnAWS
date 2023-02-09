@@ -1,22 +1,32 @@
 {
   "dev": {
     "awscloudformation": {
-      "AuthRoleName": "amplify-miniblogonaws-dev-162559-authRole",
-      "UnauthRoleArn": "arn:aws:iam::258455942177:role/amplify-miniblogonaws-dev-162559-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::258455942177:role/amplify-miniblogonaws-dev-162559-authRole",
+      "AuthRoleName": "amplify-miniblogonaws-dev-181945-authRole",
+      "UnauthRoleArn": "arn:aws:iam::258455942177:role/amplify-miniblogonaws-dev-181945-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::258455942177:role/amplify-miniblogonaws-dev-181945-authRole",
       "Region": "ap-southeast-2",
-      "DeploymentBucketName": "amplify-miniblogonaws-dev-162559-deployment",
-      "UnauthRoleName": "amplify-miniblogonaws-dev-162559-unauthRole",
-      "StackName": "amplify-miniblogonaws-dev-162559",
-      "StackId": "arn:aws:cloudformation:ap-southeast-2:258455942177:stack/amplify-miniblogonaws-dev-162559/3c8c7180-a83a-11ed-8d45-023b8fc88122",
-      "AmplifyAppId": "d300vpz25vmxv8"
+      "DeploymentBucketName": "amplify-miniblogonaws-dev-181945-deployment",
+      "UnauthRoleName": "amplify-miniblogonaws-dev-181945-unauthRole",
+      "StackName": "amplify-miniblogonaws-dev-181945",
+      "StackId": "arn:aws:cloudformation:ap-southeast-2:258455942177:stack/amplify-miniblogonaws-dev-181945/2175fbe0-a84a-11ed-b380-02144436fac0",
+      "AmplifyAppId": "d1iu0wrpqq0q8g",
+      "APIGatewayAuthURL": "https://s3.amazonaws.com/amplify-miniblogonaws-dev-181945-deployment/amplify-cfn-templates/api/APIGatewayAuthStack.json"
     },
     "categories": {
-      "hosting": {
-        "amplifyhosting": {
-          "appId": "d300vpz25vmxv8",
-          "type": "manual"
+      "auth": {
+        "miniblogonawsc074ec0c": {}
+      },
+      "function": {
+        "miniblogonaws2211bd2e": {
+          "deploymentBucketName": "amplify-miniblogonaws-dev-181945-deployment",
+          "s3Key": "amplify-builds/miniblogonaws2211bd2e-6d505866504c5951334b-build.zip"
         }
+      },
+      "storage": {
+        "dynamodf9e0aee": {}
+      },
+      "api": {
+        "apia4e440b0": {}
       }
     }
   }

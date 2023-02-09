@@ -1,27 +1,91 @@
 {
-  "hosting": {
-    "amplifyhosting": {
+  "api": {
+    "apia4e440b0": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "miniblogonaws2211bd2e"
+        }
+      ],
       "providerPlugin": "awscloudformation",
-      "service": "amplifyhosting",
-      "type": "manual"
+      "service": "API Gateway"
+    }
+  },
+  "auth": {
+    "miniblogonawsc074ec0c": {
+      "customAuth": false,
+      "dependsOn": [],
+      "frontendAuthConfig": {
+        "mfaConfiguration": "OFF",
+        "mfaTypes": [
+          "SMS"
+        ],
+        "passwordProtectionSettings": {
+          "passwordPolicyCharacters": [],
+          "passwordPolicyMinLength": 8
+        },
+        "signupAttributes": [
+          "EMAIL"
+        ],
+        "socialProviders": [],
+        "usernameAttributes": [
+          "EMAIL"
+        ],
+        "verificationMechanisms": [
+          "EMAIL"
+        ]
+      },
+      "providerPlugin": "awscloudformation",
+      "service": "Cognito"
+    }
+  },
+  "function": {
+    "miniblogonaws2211bd2e": {
+      "build": true,
+      "dependsOn": [
+        {
+          "attributeEnvMap": {
+            "Arn": "TABLE_ARN",
+            "Name": "TABLE_NAME"
+          },
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "storage",
+          "resourceName": "dynamodf9e0aee"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
     }
   },
   "parameters": {
-    "AMPLIFY_hosting_amplifyhosting_appId": {
+    "AMPLIFY_function_miniblogonaws2211bd2e_deploymentBucketName": {
       "usedBy": [
         {
-          "category": "hosting",
-          "resourceName": "amplifyhosting"
+          "category": "function",
+          "resourceName": "miniblogonaws2211bd2e"
         }
       ]
     },
-    "AMPLIFY_hosting_amplifyhosting_type": {
+    "AMPLIFY_function_miniblogonaws2211bd2e_s3Key": {
       "usedBy": [
         {
-          "category": "hosting",
-          "resourceName": "amplifyhosting"
+          "category": "function",
+          "resourceName": "miniblogonaws2211bd2e"
         }
       ]
+    }
+  },
+  "storage": {
+    "dynamodf9e0aee": {
+      "providerPlugin": "awscloudformation",
+      "service": "DynamoDB"
     }
   }
 }
